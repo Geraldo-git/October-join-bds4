@@ -20,7 +20,6 @@ public class RoleDTO implements Serializable{
 	}
 	
 	public RoleDTO(Role role) {
-		super();
 		id = role.getId();
 		autorithy = role.getAuthority();
 	}

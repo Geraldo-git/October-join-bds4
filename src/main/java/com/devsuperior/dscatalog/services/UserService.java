@@ -37,9 +37,9 @@ public class UserService implements UserDetailsService{
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	@Autowired
-	RoleRepository roleRepository;
+	private RoleRepository roleRepository;
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 
 	
 	@Transactional(readOnly = true)
@@ -106,7 +106,7 @@ public class UserService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByEmail(username);
 		if(user == null) {
-			logger.error("Usuario não encontrado: "+username);
+			logger.error("Usuario não encontrado: " + username);
 			throw new UsernameNotFoundException("Email não encontrado");
 		}
 		logger.info("Usuario encontrado!");
